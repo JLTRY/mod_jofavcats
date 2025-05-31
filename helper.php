@@ -13,7 +13,7 @@ defined('_JEXEC') or die;
 
 $com_path = JPATH_SITE.'/components/com_content/';
 //require_once $com_path.'router.php';
-require_once $com_path.'src/Helper/RouteHelper.php';
+//require_once $com_path.'helpers/route.php';
 
 JModelLegacy::addIncludePath($com_path.'/models', 'ContentModel');
 
@@ -30,9 +30,8 @@ abstract class modFeatcatsHelper
 		$pag       = $params->get('pag_show', 0);
 		$cat_image = $params->get('cat_image', 0);
 		
-		$colBootstrapClasses = array(1=>'col-lg-12 col-md-12 col-sm-12 col-xl-12 span12', 2=>'col-lg-6 col-md-6 col-sm-6 col-xl-6 span6', 
-								3=>'col-lg-4 col-md-6 col-sm-12 col-xl-4 span4', 4=>'col-lg-3 col-md-6 col-sm-12 col-xl-3 span3', 
-								6=>'col-lg-2 col-md-3 col-sm-12 col-xl-2 span2');		
+		$colBootstrapClasses = array(1=>'col-lg-12 col-md-12 col-sm-12 span12', 2=>'col-lg-6 col-md-6 col-sm-12 span6', 3=>'col-lg-4 col-md-6 col-sm-12 span4', 4=>'col-lg-3 col-md-6 col-sm-12 span3', 6=>'col-lg-2 col-md-3 col-sm-12 span2');
+		
 		$groups     = array();
 		$col_class  = 'featcat';
 		$categories = JCategories::getInstance('Content');
@@ -85,7 +84,7 @@ abstract class modFeatcatsHelper
 					$groups[$catid]->category_image = $registry->get('image');
 				endif;
 				
-				$groups[$catid]->articles = array();		
+				$groups[$catid]->articles = array();
 				
 				$articles = JModelLegacy::getInstance('Articles', 'ContentModel', array('ignore_request' => true));
 				
@@ -354,7 +353,7 @@ abstract class modFeatcatsHelper
 	}
 	
 	public static function getAjax()
-    {		
+    {
 		$input  = JFactory::getApplication()->input;
 		
 		jimport('joomla.application.module.helper');
@@ -393,14 +392,14 @@ abstract class modFeatcatsHelper
 		$height     = $params->get('thumb_height',90);
 		$proportion = $params->get('thumb_proportions','bestfit');
 		$img_type   = $params->get('thumb_type','');
-		$bgcolor    = hexdec($params->get('thumb_bg','#FFFFFF'));
+		$bgcolor    = (int)$params->get('thumb_bg', '#FFFFFF');
 		
 		$def_image  = $params->get('def_image', '');
-		$item_img   = $img?$img:$def_image;
+		$item_img   = explode('#' ,$img?$img:$def_image)[0];
 		
 		$img_name   = pathinfo($item_img, PATHINFO_FILENAME);
 		$img_ext    = pathinfo($item_img, PATHINFO_EXTENSION);
-		$img_path   = JPATH_BASE  . '/' . $item_img;		
+		$img_path   = JPATH_BASE  . '/' . $item_img;
 		$img_base   = JURI::base(false);
 		
 		if (modFeatcatsHelper::is_absolute($item_img)) {
@@ -501,11 +500,11 @@ abstract class modFeatcatsHelper
 				} else {
 					$result = @$imagefunction($dst_img, $thumb_path);
 				}
-	
+
 
 
 				imagedestroy($src_img);
-				if(!$result) {				
+				if(!$result) {
 					if(!isset($disablepermissionwarning)) {
 					$errors[] = 'Could not create image:<br />' . $thumb_path . ' in mod_featcats.<br /> Check if the folder exists and if you have write permissions:<br /> ' . dirname(__FILE__) . '/thumbs/' . $sub_folder;
 					}
@@ -517,7 +516,7 @@ abstract class modFeatcatsHelper
 		}
 		
 		if (count($errors)) {
-			JError::raiseWarning(404, implode("\n", $errors));
+			JFactory::getApplication()->enqueueMessage( implode("\n", $errors), 'warning');
 			return false;
 		}
 				
