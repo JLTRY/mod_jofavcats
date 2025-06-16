@@ -11,31 +11,44 @@
 
 defined('_JEXEC') or die;
 
-$doc = JFactory::getDocument();
+use \Joomla\CMS\Factory;
+use \Joomla\CMS\Helper\ModuleHelper;
+use \Joomla\CMS\Language\Text;
+use \Joomla\CMS\Uri\Uri;
 
-if ($css!=-1) :
-	$doc->addStyleSheet('modules/mod_featcats/assets/'.$css);
-endif;
+$doc = Factory::getDocument();
+if ($params->get('moduleclass_sfx')) {
+	$moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
+} else {
+	$moduleclass_sfx = "";
+}
 
-if ($pag) :
-	$script = "var sfolder = '" . JURI::base(true) . "';";
-	$doc->addScriptDeclaration($script);
-	$doc->addScript('modules/mod_featcats/assets/featcats.js');
-endif;
+$item_heading = $params->get('item_heading');
+$cat_heading  = $params->get('cat_heading');
+$link_cats    = $params->get('link_cats', 1);
+$show_image   = $params->get('show_image', 0);
+$show_more    = $params->get('show_more');
+$link_target  = $params->get('link_target');
+$pag          = $params->get('pag_show', 0);
+$css          = $params->get('add_css','featcats.css');
+
+$wa = Factory::getApplication()->getDocument()->getWebAssetManager();
+$wa->getRegistry()->addRegistryFile('media/mod_featcats/joomla.asset.json');
+$wa->usePreset("module.featcats");
 ?>
 <ul class="featcats<?php echo $moduleclass_sfx; ?> row-fluid" id="featcats-<?php echo $mid; ?>">
 	<?php foreach ($cats as $id=>$cat) : ?>
     <li class="<?php echo $cat->col_class; ?>" id="featcat-<?php echo $mid; ?>-<?php echo $id; ?>">
-        <?php if ($show_more==2) : ?><a href="<?php echo $cat->category_link; ?>" class="fc_more"><?php echo JText::_('MOD_FEATCATS_MORE_ARTICLES'); ?></a><?php endif; ?>
+        <?php if ($show_more==2) : ?><a href="<?php echo $cat->category_link; ?>" class="fc_more"><?php echo Text::_('MOD_FEATCATS_MORE_ARTICLES'); ?></a><?php endif; ?>
         <?php if ($params->get('cat_image') && $cat->category_image) : ?>
 			<?php if ($link_cats) : ?><a href="<?php echo $cat->category_link; ?>"><?php endif; ?>
-			<img src="<?php echo JURI::base(false).$cat->category_image; ?>" class="fc_cat_image" />
+			<img src="<?php echo URI::base(false).$cat->category_image; ?>" class="fc_cat_image" />
             <?php if ($link_cats) : ?></a><?php endif; ?>
         <?php endif; ?>
         <?php if ($cat_heading) : ?><?php echo '<h' . $cat_heading . '>'; ?><?php if ($link_cats) : ?><a href="<?php echo $cat->category_link; ?>"><?php endif; ?><?php echo $cat->category_title; ?><?php if ($link_cats) : ?></a><?php endif; ?><?php echo '</h' . $cat_heading . '>'; ?><?php endif; ?>
 		<?php if ($cat->articles) : ?>
 			<div id="fc_ajax-<?php echo $mid; ?>-<?php echo $id; ?>" class="fc_ajax">
-				<?php require JModuleHelper::getLayoutPath('mod_featcats', 'cat'); ?>
+				<?php require ModuleHelper::getLayoutPath('mod_featcats', 'cat'); ?>
 			</div>
 		<?php endif; ?>
     </li>

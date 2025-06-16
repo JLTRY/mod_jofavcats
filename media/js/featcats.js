@@ -20,7 +20,7 @@ function fc_paginate(start,catid,mid,Itemid) {
 	var imgtop = height/2-33;
 	items.style.height = height+'px';	
 	items.style.opacity = .5;
-	column.innerHTML=column.innerHTML+'<div class="fc_loading" style="line-height:'+height+'px"><img src="'+live_site+'/modules/mod_featcats/assets/loading.gif" border="0" style="margin-top:'+imgtop+'px" /></div>';
+	column.innerHTML=column.innerHTML+'<div class="fc_loading" style="line-height:'+height+'px"><img src="'+live_site+'/media/mod_featcats/images/loading.gif" border="0" style="margin-top:'+imgtop+'px" /></div>';
 	
 	var ajax = new XMLHttpRequest;
    	ajax.onreadystatechange=function()

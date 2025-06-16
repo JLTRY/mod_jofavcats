@@ -16,9 +16,6 @@ $show_introtext2 = $params->get('show_introtext2', 0);
           <div id="fc_items-<?php echo $mid; ?>-<?php echo $id; ?>" class="fc_items">
         	<ul class="fc_leading">
 			<?php foreach ($cat->articles as $article) : 
-				if ($params->get('ajaxed')) :
-					$article->link = str_replace('modules/mod_featcats/assets/','', $article->link);
-				endif; 
 				if ($params->get('link_image',0)) :
 					$image = '<a href="' . $article->link . '"' . ($link_target == 1 ? ' target="_blank"' : '') . '>' . $article->image . '</a>';
 				else :
@@ -26,7 +23,7 @@ $show_introtext2 = $params->get('show_introtext2', 0);
 				endif;
 				if ( $params->get('bold_firstsentence', 0) ) :
 					$regex = '/^(.*?)[\.\?!]\s/';
-					$article->displayIntrotext = (preg_match($regex, $article->displayIntrotext) == 1 ? preg_replace($regex, '<strong>$0</strong>', $article->displayIntrotext) : '<strong>'.$article->displayIntrotext.'</strong>'); 	
+					$article->displayIntrotext = (preg_match($regex, $article->displayIntrotext) == 1 ? preg_replace($regex, '<strong>$0</strong>', $article->displayIntrotext) : '<strong>'.$article->displayIntrotext.'</strong>'); 
 				endif; ?>
         		<li><?php echo ($show_image == 2 ? $image : ''); ?><?php if ($item_heading) : ?><?php echo '<h' . $item_heading . '>'; ?>
 				<?php if ($params->get('link_titles') == 1) : ?>
@@ -65,7 +62,7 @@ $show_introtext2 = $params->get('show_introtext2', 0);
                                     echo JHtml::_('string.truncate', ($article->title), $params->get('readmore_limit'));
                                 endif;
                             elseif ($params->get('show_readmore_title', 0) == 0) :
-                                echo JText::sprintf('MOD_FEATCATS_READ_MORE_TITLE');	
+                                echo JText::sprintf('MOD_FEATCATS_READ_MORE_TITLE');
                             else :
                                 
                                 echo JText::_('MOD_FEATCATS_READ_MORE');
@@ -78,9 +75,9 @@ $show_introtext2 = $params->get('show_introtext2', 0);
             <?php endforeach; ?>
             </ul>
             <?php if ( $cat->subarticles || $show_more==1 ) : ?>
-				<?php require JModuleHelper::getLayoutPath('mod_featcats', 'links'); ?>			
+				<?php require JModuleHelper::getLayoutPath('mod_featcats', 'links'); ?>
 			<?php endif; ?>    
           </div>  
 		  <?php if ($pag) : ?>
-              <?php require JModuleHelper::getLayoutPath('mod_featcats', 'pag'); ?>			
+              <?php require JModuleHelper::getLayoutPath('mod_featcats', 'pag'); ?>
           <?php endif; ?>

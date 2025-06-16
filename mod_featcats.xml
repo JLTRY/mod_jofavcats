@@ -11,29 +11,32 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>chuzky@gmail.com</authorEmail>
 	<authorUrl>http://www.joomlahill.com</authorUrl>
-	<version>3.2.6</version>
+	<version>5.0.0</version>
+	<namespace path="src">JLTRY\Module\FeatCats</namespace>
 	<description>MOD_FEATCATS_XML_DESCRIPTION</description>
+	<scriptfile>script.php</scriptfile>
 	<files>
-		<filename module="mod_featcats">mod_featcats.php
-		</filename>
-		<folder>assets</folder>
-		<folder>language</folder>
-		<folder>thumbs</folder>
+		<folder module="mod_featcats">services</folder>
+		<folder>src</folder>
 		<folder>tmpl</folder>
-		<filename>helper.php</filename>
+		<folder>language</folder>
 		<filename>index.html</filename>
-		<filename>mod_featcats.xml</filename>
 	</files>
+	<media destination="mod_featcats" folder="media">
+		<filename>joomla.asset.json</filename>
+		<folder>js</folder>
+		<folder>images</folder>
+		<folder>css</folder>
+    </media>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-
 				<field name="catid" type="category" extension="com_content"
 					multiple="true" size="5"
 					label="MOD_FEATCATS_FIELD_CATEGORY_LABEL"
 					description="MOD_FEATCATS_FIELD_CATEGORY_DESC"
 				>
-          <option value="">JOPTION_ALL_CATEGORIES</option>
+					<option value="">JOPTION_ALL_CATEGORIES</option>
 				</field>
 
 				<field name="show_child_category_articles" type="radio"

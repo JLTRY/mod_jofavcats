@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "featcats",
+  "version": "3.2.6",
+  "description": "This module displays a list of articles from your featured categories",
+  "license": "GPL-2.0+",
+  "assets": [
+   {
+      "name": "module.featcats",
+      "type": "script",
+      "uri": "mod_featcats/featcats.js",
+      "dependencies": [
+        "core",
+        "jquery"
+      ]
+    },
+    {
+      "name": "module.featcats",
+      "type": "style",
+      "uri": "mod_featcats/featcats.css"
+    },
+    {
+      "name": "module.featcats",
+      "type": "preset",
+      "dependencies": [
+        "module.featcats#style",
+        "module.featcats#script"
+      ]
+    }
+  ]
+}
