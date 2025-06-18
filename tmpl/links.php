@@ -1,12 +1,12 @@
 <?php
 /*------------------------------------------------------------------------
-# mod_featcats - Featured Categories
+# mod_jofavcats - JO Favorite Categories
 # ------------------------------------------------------------------------
-# author    Jesús Vargas Garita
+# author    JL TRYOEN / Jesús Vargas Garita
 # Copyright (C) 2010 www.joomlahill.com. All Rights Reserved.
-# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
-# Websites: http://www.joomlahill.com
-# Technical Support:  Forum - http://www.joomlahill.com/forum
+# Copyright (C) 2025 www.jltryoen.fr All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+# Websites: http://www.jltryoen.fr http://www.joomlahill.com
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die; 
@@ -43,7 +43,7 @@ defined('_JEXEC') or die;
 					<div class="fc_readmore2">
 						<a class="fc_title <?php echo $subarticle->active; ?>" href="<?php echo $subarticle->link; ?>"<?php echo ($params->get('link_target') == 1 ? ' target="_blank"' : ''); ?>>
 						<?php if ($subarticle->params->get('access-view')== FALSE) :
-								echo JText::_('MOD_FEATCATS_REGISTER_TO_READ_MORE');
+								echo JText::_('MOD_JOFAVCATS_REGISTER_TO_READ_MORE');
 							elseif ($readmore = $subarticle->alternative_readmore) :
 								echo $readmore;
 								echo JHtml::_('string.truncate', $subarticle->title, $params->get('readmore_limit2'));
@@ -51,10 +51,10 @@ defined('_JEXEC') or die;
 									echo JHtml::_('string.truncate', ($subarticle->title), $params->get('readmore_limit2'));
 								endif;
 							elseif ($params->get('show_readmore_title2', 0) == 0) :
-								echo JText::sprintf('MOD_FEATCATS_READ_MORE_TITLE');	
+								echo JText::sprintf('MOD_JOFAVCATS_READ_MORE_TITLE');	
 							else :
 								
-								echo JText::_('MOD_FEATCATS_READ_MORE');
+								echo JText::_('MOD_JOFAVCATS_READ_MORE');
 								echo JHtml::_('string.truncate', ($subarticle->title), $params->get('readmore_limit2'));
 							endif; ?>
 						</a>
@@ -63,6 +63,6 @@ defined('_JEXEC') or die;
 				</li>
 			<?php endforeach; endif; ?>
 			<?php if ( $show_more==1 ) : ?>
-				<li class="fc_more"><a href="<?php echo $cat->category_link; ?>"><?php echo JText::_('MOD_FEATCATS_MORE_ARTICLES'); ?></a></li>
+				<li class="fc_more"><a href="<?php echo $cat->category_link; ?>"><?php echo JText::_('MOD_JOFAVCATS_MORE_ARTICLES'); ?></a></li>
 			<?php endif; ?>
 			</ul>

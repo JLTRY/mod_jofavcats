@@ -1,15 +1,18 @@
 <?php
 /*------------------------------------------------------------------------
-# mod_featcats - Featured Categories
+# mod_jofavcats - JO Favorite Categories
 # ------------------------------------------------------------------------
-# author    Jesús Vargas Garita
+# author    JL TRYOEN / Jesús Vargas Garita
 # Copyright (C) 2010 www.joomlahill.com. All Rights Reserved.
-# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
-# Websites: http://www.joomlahill.com
-# Technical Support:  Forum - http://www.joomlahill.com/forum
+# Copyright (C) 2025 www.jltryoen.fr All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+# Websites: http://www.jltryoen.fr http://www.joomlahill.com
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die; 
+
+use Joomla\CMS\Helper\ModuleHelper;
+
 $show_introtext = $params->get('show_introtext', 0);
 $show_introtext2 = $params->get('show_introtext2', 0);
 ?>
@@ -54,7 +57,7 @@ $show_introtext2 = $params->get('show_introtext2', 0);
                     <p class="fc_readmore">
                         <a class="fc_title <?php echo $article->active; ?>" href="<?php echo $article->link; ?>"<?php echo ($params->get('link_target') == 1 ? ' target="_blank"' : ''); ?>>
                         <?php if ($article->params->get('access-view')== FALSE) :
-                                echo JText::_('MOD_FEATCATS_REGISTER_TO_READ_MORE');
+                                echo JText::_('MOD_JOFAVCATS_REGISTER_TO_READ_MORE');
                             elseif ($readmore = $article->alternative_readmore) :
                                 echo $readmore;
                                 echo JHtml::_('string.truncate', $article->title, $params->get('readmore_limit'));
@@ -62,10 +65,10 @@ $show_introtext2 = $params->get('show_introtext2', 0);
                                     echo JHtml::_('string.truncate', ($article->title), $params->get('readmore_limit'));
                                 endif;
                             elseif ($params->get('show_readmore_title', 0) == 0) :
-                                echo JText::sprintf('MOD_FEATCATS_READ_MORE_TITLE');
+                                echo JText::sprintf('MOD_JOFAVCATS_READ_MORE_TITLE');
                             else :
                                 
-                                echo JText::_('MOD_FEATCATS_READ_MORE');
+                                echo JText::_('MOD_JOFAVCATS_READ_MORE');
                                 echo JHtml::_('string.truncate', ($article->title), $params->get('readmore_limit'));
                             endif; ?>
 						</a>
@@ -75,9 +78,9 @@ $show_introtext2 = $params->get('show_introtext2', 0);
             <?php endforeach; ?>
             </ul>
             <?php if ( $cat->subarticles || $show_more==1 ) : ?>
-				<?php require JModuleHelper::getLayoutPath('mod_featcats', 'links'); ?>
+				<?php require ModuleHelper::getLayoutPath('mod_jofavcats', 'links'); ?>
 			<?php endif; ?>    
           </div>  
 		  <?php if ($pag) : ?>
-              <?php require JModuleHelper::getLayoutPath('mod_featcats', 'pag'); ?>
+              <?php require ModuleHelper::getLayoutPath('mod_jofavcats', 'pag'); ?>
           <?php endif; ?>

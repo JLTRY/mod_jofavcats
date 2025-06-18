@@ -4,37 +4,40 @@
 	version="3.0" 
 	client="site"
 	method="upgrade">
-	<name>Featured categories</name>
-	<author>Joomla!Vargas</author>
-	<creationDate>June 2010</creationDate>
-	<copyright>Copyright (C) 2005 - 2011 Open Source Matters. All rights reserved.</copyright>
-	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
-	<authorEmail>chuzky@gmail.com</authorEmail>
-	<authorUrl>http://www.joomlahill.com</authorUrl>
+	<name>JO Favorite Categories</name>
+	<author>JL TRYOEN/Joomla!Vargas</author>
+	<creationDate>June 2025</creationDate>
+	<copyright>Copyright (C) 2025 JL TRYOEN. All rights reserved.</copyright>
+    <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
+	<authorEmail>jltryoen@orange.fr;chuzky@gmail.com</authorEmail>
+	<authorUrl>http://www.jltryoen.fr http://www.joomlahill.com</authorUrl>
 	<version>5.0.0</version>
-	<namespace path="src">JLTRY\Module\FeatCats</namespace>
-	<description>MOD_FEATCATS_XML_DESCRIPTION</description>
+	<namespace path="src">JLTRY\Module\JOFavCats</namespace>
+	<description>MOD_JOFAVCATS_XML_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>
 	<files>
-		<folder module="mod_featcats">services</folder>
+		<folder module="mod_jofavcats">services</folder>
 		<folder>src</folder>
 		<folder>tmpl</folder>
 		<folder>language</folder>
 		<filename>index.html</filename>
 	</files>
-	<media destination="mod_featcats" folder="media">
+	<media destination="mod_jofavcats" folder="media">
 		<filename>joomla.asset.json</filename>
 		<folder>js</folder>
 		<folder>images</folder>
 		<folder>css</folder>
     </media>
+    <updateservers>
+       <server type="extension" priority="1" name="Attachments Updates">https://raw.githubusercontent.com/JLTRY/mod_jofavcats/master/mod_jofavcats-update.xml</server>
+    </updateservers>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
 				<field name="catid" type="category" extension="com_content"
 					multiple="true" size="5"
-					label="MOD_FEATCATS_FIELD_CATEGORY_LABEL"
-					description="MOD_FEATCATS_FIELD_CATEGORY_DESC"
+					label="MOD_JOFAVCATS_FIELD_CATEGORY_LABEL"
+					description="MOD_JOFAVCATS_FIELD_CATEGORY_DESC"
 				>
 					<option value="">JOPTION_ALL_CATEGORIES</option>
 				</field>
@@ -42,22 +45,22 @@
 				<field name="show_child_category_articles" type="radio"
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_SHOWCHILDCATEGORYARTICLES_LABEL"
-					description="MOD_FEATCATS_FIELD_SHOWCHILDCATEGORYARTICLES_DESC"
+					label="MOD_JOFAVCATS_FIELD_SHOWCHILDCATEGORYARTICLES_LABEL"
+					description="MOD_JOFAVCATS_FIELD_SHOWCHILDCATEGORYARTICLES_DESC"
 				>
-					<option value="1">MOD_FEATCATS_OPTION_INCLUDE_VALUE
+					<option value="1">MOD_JOFAVCATS_OPTION_INCLUDE_VALUE
 					</option>
-					<option value="0">MOD_FEATCATS_OPTION_EXCLUDE_VALUE
+					<option value="0">MOD_JOFAVCATS_OPTION_EXCLUDE_VALUE
 					</option>
 				</field>
 
 				<field name="levels" type="text" default="1"
-					label="MOD_FEATCATS_FIELD_CATDEPTH_LABEL"
-					description="MOD_FEATCATS_FIELD_CATDEPTH_DESC" />
+					label="MOD_JOFAVCATS_FIELD_CATDEPTH_LABEL"
+					description="MOD_JOFAVCATS_FIELD_CATDEPTH_DESC" />
 					
 				<field name="colcount" type="list" default="2"
-					label="MOD_FEATCATS_FIELD_COLCOUNT_LABEL"
-					description="MOD_FEATCATS_FIELD_COLCOUNT_DESC">
+					label="MOD_JOFAVCATS_FIELD_COLCOUNT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_COLCOUNT_DESC">
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -66,8 +69,8 @@
 				</field>
 															
 				<field name="cat_heading" type="list" default="3"
-					label="MOD_FEATCATS_CAT_HEADING"
-					description="MOD_FEATCATS_CAT_HEADING_DESCRIPTION"
+					label="MOD_JOFAVCATS_CAT_HEADING"
+					description="MOD_JOFAVCATS_CAT_HEADING_DESCRIPTION"
 				>
 					<option value="1">JH1</option>
 					<option value="2">JH2</option>
@@ -81,8 +84,8 @@
 				<field name="cat_image" type="radio"
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_CAT_IMAGE_SHOW_LABEL"
-					description="MOD_FEATCATS_FIELD_CAT_IMAGE_SHOW_DESC"
+					label="MOD_JOFAVCATS_FIELD_CAT_IMAGE_SHOW_LABEL"
+					description="MOD_JOFAVCATS_FIELD_CAT_IMAGE_SHOW_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -91,13 +94,13 @@
 				</field>
 
 				<field name="count" type="text" default="3"
-					label="MOD_FEATCATS_FIELD_COUNT_LABEL"
-					description="MOD_FEATCATS_FIELD_COUNT_DESC" />
+					label="MOD_JOFAVCATS_FIELD_COUNT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_COUNT_DESC" />
 					
 				
 				<field name="item_heading" type="list" default="4"
-					label="MOD_FEATCATS_TITLE_HEADING"
-					description="MOD_FEATCATS_TITLE_HEADING_DESCRIPTION"
+					label="MOD_JOFAVCATS_TITLE_HEADING"
+					description="MOD_JOFAVCATS_TITLE_HEADING_DESCRIPTION"
 				>
 					<option value="1">JH1</option>
 					<option value="2">JH2</option>
@@ -109,26 +112,26 @@
 				</field>
 
 				<field name="subcount" type="text" default="0"
-					label="MOD_FEATCATS_FIELD_SUBCOUNT_LABEL"
-					description="MOD_FEATCATS_FIELD_SUBCOUNT_DESC" />
+					label="MOD_JOFAVCATS_FIELD_SUBCOUNT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_SUBCOUNT_DESC" />
 
 				<field name="show_more" type="list" default="0"
-					label="MOD_FEATCATS_FIELD_SHOWMORE_LABEL"
-					description="MOD_FEATCATS_FIELD_SHOWMORE_DESC"
+					label="MOD_JOFAVCATS_FIELD_SHOWMORE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_SHOWMORE_DESC"
 				>
 					<option value="0">JHIDE
 					</option>
-					<option value="1">MOD_FEATCATS_OPTION_SHOWMORE_BOTTOM
+					<option value="1">MOD_JOFAVCATS_OPTION_SHOWMORE_BOTTOM
 					</option>
-					<option value="2">MOD_FEATCATS_OPTION_SHOWMORE_TOP
+					<option value="2">MOD_JOFAVCATS_OPTION_SHOWMORE_TOP
 					</option>
 				</field>
 
 				<field name="pag_show" type="radio"
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_PAG_SHOW_LABEL"
-					description="MOD_FEATCATS_FIELD_PAG_SHOW_DESC"
+					label="MOD_JOFAVCATS_FIELD_PAG_SHOW_LABEL"
+					description="MOD_JOFAVCATS_FIELD_PAG_SHOW_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -139,8 +142,8 @@
 				<field name="link_cats" type="radio"
 					class="btn-group"
 					default="1"
-					label="MOD_FEATCATS_FIELD_LINKCATS_LABEL"
-					description="MOD_FEATCATS_FIELD_LINKCATS_DESC"
+					label="MOD_JOFAVCATS_FIELD_LINKCATS_LABEL"
+					description="MOD_JOFAVCATS_FIELD_LINKCATS_DESC"
 				>
 					<option value="1">JYES
 					</option>
@@ -151,8 +154,8 @@
 				<field name="link_titles" type="radio"
 					class="btn-group"
 					default="1"
-					label="MOD_FEATCATS_FIELD_LINKTITLES_LABEL"
-					description="MOD_FEATCATS_FIELD_LINKTITLES_DESC"
+					label="MOD_JOFAVCATS_FIELD_LINKTITLES_LABEL"
+					description="MOD_JOFAVCATS_FIELD_LINKTITLES_DESC"
 				>
 					<option value="1">JYES
 					</option>
@@ -163,8 +166,8 @@
 				<field name="link_target" type="radio"
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_LINKTARGET_LABEL"
-					description="MOD_FEATCATS_FIELD_LINKTARGET_DESC"
+					label="MOD_JOFAVCATS_FIELD_LINKTARGET_LABEL"
+					description="MOD_JOFAVCATS_FIELD_LINKTARGET_DESC"
 				>
 					<option value="1">JYES
 					</option>
@@ -175,8 +178,8 @@
 				<field name="show_hits" type="radio"
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_SHOWHITS_LABEL"
-					description="MOD_FEATCATS_FIELD_SHOWHITS_DESC"
+					label="MOD_JOFAVCATS_FIELD_SHOWHITS_LABEL"
+					description="MOD_JOFAVCATS_FIELD_SHOWHITS_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -187,37 +190,37 @@
 			</fieldset>
 
 			<fieldset name="filtering"
-				label="MOD_FEATCATS_FIELD_GROUP_FILTERING_LABEL"
+				label="MOD_JOFAVCATS_FIELD_GROUP_FILTERING_LABEL"
 			>
 				<field name="show_front" type="list"
 					default="show"
-					label="MOD_FEATCATS_FIELD_SHOWFEATURED_LABEL"
-					description="MOD_FEATCATS_FIELD_SHOWFEATURED_DESC"
+					label="MOD_JOFAVCATS_FIELD_SHOWFEATURED_LABEL"
+					description="MOD_JOFAVCATS_FIELD_SHOWFEATURED_DESC"
 				>
 					<option value="show">JSHOW
 					</option>
 					<option value="hide">JHIDE
 					</option>
-					<option value="only">MOD_FEATCATS_OPTION_ONLYFEATURED_VALUE
+					<option value="only">MOD_JOFAVCATS_OPTION_ONLYFEATURED_VALUE
 					</option>
 				</field>
 
 				<field name="author_filtering_type" type="radio"
 					class="btn-group"
 					default="1"
-					label="MOD_FEATCATS_FIELD_AUTHORFILTERING_LABEL"
-					description="MOD_FEATCATS_FIELD_AUTHORFILTERING_DESC"
+					label="MOD_JOFAVCATS_FIELD_AUTHORFILTERING_LABEL"
+					description="MOD_JOFAVCATS_FIELD_AUTHORFILTERING_DESC"
 				>
-					<option value="1">MOD_FEATCATS_OPTION_INCLUSIVE_VALUE
+					<option value="1">MOD_JOFAVCATS_OPTION_INCLUSIVE_VALUE
 					</option>
-					<option value="0">MOD_FEATCATS_OPTION_EXCLUSIVE_VALUE
+					<option value="0">MOD_JOFAVCATS_OPTION_EXCLUSIVE_VALUE
 					</option>
 				</field>
 
 				<field name="created_by" type="sql"
 					multiple="true" size="5"
-					label="MOD_FEATCATS_FIELD_AUTHOR_LABEL"
-					description="MOD_FEATCATS_FIELD_AUTHOR_DESC"
+					label="MOD_JOFAVCATS_FIELD_AUTHOR_LABEL"
+					description="MOD_JOFAVCATS_FIELD_AUTHOR_DESC"
 					query="select id, name, username from #__users where id IN (select distinct(created_by) from #__content) order by name ASC"
 					key_field="id" value_field="name"
 				>
@@ -227,19 +230,19 @@
 				<field name="author_alias_filtering_type" type="radio"
 					class="btn-group"
 					default="1"
-					label="MOD_FEATCATS_FIELD_AUTHORALIASFILTERING_LABEL"
-					description="MOD_FEATCATS_FIELD_AUTHORALIASFILTERING_DESC"
+					label="MOD_JOFAVCATS_FIELD_AUTHORALIASFILTERING_LABEL"
+					description="MOD_JOFAVCATS_FIELD_AUTHORALIASFILTERING_DESC"
 				>
-					<option value="1">MOD_FEATCATS_OPTION_INCLUSIVE_VALUE
+					<option value="1">MOD_JOFAVCATS_OPTION_INCLUSIVE_VALUE
 					</option>
-					<option value="0">MOD_FEATCATS_OPTION_EXCLUSIVE_VALUE
+					<option value="0">MOD_JOFAVCATS_OPTION_EXCLUSIVE_VALUE
 					</option>
 				</field>
 
 				<field name="created_by_alias" type="sql"
 					multiple="true" size="5"
-					label="MOD_FEATCATS_FIELD_AUTHORALIAS_LABEL"
-					description="MOD_FEATCATS_FIELD_AUTHORALIAS_DESC"
+					label="MOD_JOFAVCATS_FIELD_AUTHORALIAS_LABEL"
+					description="MOD_JOFAVCATS_FIELD_AUTHORALIAS_DESC"
 					query="select distinct(created_by_alias) from #__content where created_by_alias != '' order by created_by_alias ASC"
 					key_field="created_by_alias" value_field="created_by_alias"
 				>
@@ -249,109 +252,109 @@
 
 				<field name="excluded_articles" type="textarea"
 					cols="10" rows="3"
-					label="MOD_FEATCATS_FIELD_EXCLUDEDARTICLES_LABEL"
-					description="MOD_FEATCATS_FIELD_EXCLUDEDARTICLES_DESC" />
+					label="MOD_JOFAVCATS_FIELD_EXCLUDEDARTICLES_LABEL"
+					description="MOD_JOFAVCATS_FIELD_EXCLUDEDARTICLES_DESC" />
 
 				<field name="date_filtering" type="list" default="off"
-					label="MOD_FEATCATS_FIELD_DATEFILTERING_LABEL"
-					description="MOD_FEATCATS_FIELD_DATEFILTERING_DESC"
+					label="MOD_JOFAVCATS_FIELD_DATEFILTERING_LABEL"
+					description="MOD_JOFAVCATS_FIELD_DATEFILTERING_DESC"
 				>
-					<option value="off">MOD_FEATCATS_OPTION_OFF_VALUE
+					<option value="off">MOD_JOFAVCATS_OPTION_OFF_VALUE
 					</option>
-					<option value="range">MOD_FEATCATS_OPTION_DATERANGE_VALUE
+					<option value="range">MOD_JOFAVCATS_OPTION_DATERANGE_VALUE
 					</option>
-					<option value="relative">MOD_FEATCATS_OPTION_RELATIVEDAY_VALUE
+					<option value="relative">MOD_JOFAVCATS_OPTION_RELATIVEDAY_VALUE
 					</option>
 				</field>
 
 				<field name="date_field" type="list" default="a.created"
-					label="MOD_FEATCATS_FIELD_DATERANGEFIELD_LABEL"
-					description="MOD_FEATCATS_FIELD_DATERANGEFIELD_DESC"
+					label="MOD_JOFAVCATS_FIELD_DATERANGEFIELD_LABEL"
+					description="MOD_JOFAVCATS_FIELD_DATERANGEFIELD_DESC"
 				>
-					<option value="a.created">MOD_FEATCATS_OPTION_CREATED_VALUE
+					<option value="a.created">MOD_JOFAVCATS_OPTION_CREATED_VALUE
 					</option>
-					<option value="a.modified">MOD_FEATCATS_OPTION_MODIFIED_VALUE
+					<option value="a.modified">MOD_JOFAVCATS_OPTION_MODIFIED_VALUE
 					</option>
-					<option value="a.publish_up">MOD_FEATCATS_OPTION_STARTPUBLISHING_VALUE
+					<option value="a.publish_up">MOD_JOFAVCATS_OPTION_STARTPUBLISHING_VALUE
 					</option>
 				</field>
 
 				<field name="start_date_range" type="calendar"
 					format="%Y-%m-%d %H:%M:%S"
-					label="MOD_FEATCATS_FIELD_STARTDATE_LABEL"
-					description="MOD_FEATCATS_FIELD_STARTDATE_DESC"
+					label="MOD_JOFAVCATS_FIELD_STARTDATE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_STARTDATE_DESC"
 					size="22"
 					filter="user_utc" />
 
 				<field name="end_date_range" type="calendar"
 					format="%Y-%m-%d %H:%M:%S"
-					label="MOD_FEATCATS_FIELD_ENDDATE_LABEL"
-					description="MOD_FEATCATS_FIELD_ENDDATE_DESC"
+					label="MOD_JOFAVCATS_FIELD_ENDDATE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_ENDDATE_DESC"
 					size="22"
 					filter="user_utc" />
 
 				<field name="relative_date" type="text" default="30"
-					label="MOD_FEATCATS_FIELD_RELATIVEDATE_LABEL"
-					description="MOD_FEATCATS_FIELD_RELATIVEDATE_DESC" />
+					label="MOD_JOFAVCATS_FIELD_RELATIVEDATE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_RELATIVEDATE_DESC" />
 			</fieldset>
 
 			<fieldset name="ordering"
-				label="MOD_FEATCATS_FIELD_GROUP_ORDERING_LABEL"
+				label="MOD_JOFAVCATS_FIELD_GROUP_ORDERING_LABEL"
 			>
 				<field name="article_ordering" type="list"
 					default="a.title"
-					label="MOD_FEATCATS_FIELD_ARTICLEORDERING_LABEL"
-					description="MOD_FEATCATS_FIELD_ARTICLEORDERING_DESC"
+					label="MOD_JOFAVCATS_FIELD_ARTICLEORDERING_LABEL"
+					description="MOD_JOFAVCATS_FIELD_ARTICLEORDERING_DESC"
 				>
-					<option value="a.ordering">MOD_FEATCATS_OPTION_ORDERING_VALUE
+					<option value="a.ordering">MOD_JOFAVCATS_OPTION_ORDERING_VALUE
 					</option>
-					<option value="fp.ordering">MOD_FEATCATS_OPTION_ORDERINGFEATURED_VALUE
+					<option value="fp.ordering">MOD_JOFAVCATS_OPTION_ORDERINGFEATURED_VALUE
 					</option>
-					<option value="a.hits">MOD_FEATCATS_OPTION_HITS_VALUE
+					<option value="a.hits">MOD_JOFAVCATS_OPTION_HITS_VALUE
 					</option>
 					<option value="a.title">JGLOBAL_TITLE
 					</option>
-					<option value="a.id">MOD_FEATCATS_OPTION_ID_VALUE
+					<option value="a.id">MOD_JOFAVCATS_OPTION_ID_VALUE
 					</option>
 					<option value="a.alias">JFIELD_ALIAS_LABEL
 					</option>
-					<option value="a.created">MOD_FEATCATS_OPTION_CREATED_VALUE
+					<option value="a.created">MOD_JOFAVCATS_OPTION_CREATED_VALUE
 					</option>
-					<option value="modified">MOD_FEATCATS_OPTION_MODIFIED_VALUE
+					<option value="modified">MOD_JOFAVCATS_OPTION_MODIFIED_VALUE
 					</option>
-					<option value="publish_up">MOD_FEATCATS_OPTION_STARTPUBLISHING_VALUE
+					<option value="publish_up">MOD_JOFAVCATS_OPTION_STARTPUBLISHING_VALUE
 					</option>
-					<option value="a.publish_down">MOD_FEATCATS_OPTION_FINISHPUBLISHING_VALUE
+					<option value="a.publish_down">MOD_JOFAVCATS_OPTION_FINISHPUBLISHING_VALUE
 					</option>
-					<option value="RAND()">MOD_FEATCATS_OPTION_RANDOM_VALUE
+					<option value="RAND()">MOD_JOFAVCATS_OPTION_RANDOM_VALUE
 					</option>
 				</field>
 
 				<field name="article_ordering_direction" type="list"
 					default="ASC"
-					label="MOD_FEATCATS_FIELD_ARTICLEORDERINGDIR_LABEL"
-					description="MOD_FEATCATS_FIELD_ARTICLEORDERINGDIR_DESC"
+					label="MOD_JOFAVCATS_FIELD_ARTICLEORDERINGDIR_LABEL"
+					description="MOD_JOFAVCATS_FIELD_ARTICLEORDERINGDIR_DESC"
 				>
-					<option value="DESC">MOD_FEATCATS_OPTION_DESCENDING_VALUE
+					<option value="DESC">MOD_JOFAVCATS_OPTION_DESCENDING_VALUE
 					</option>
-					<option value="ASC">MOD_FEATCATS_OPTION_ASCENDING_VALUE
+					<option value="ASC">MOD_JOFAVCATS_OPTION_ASCENDING_VALUE
 					</option>
 				</field>
 			</fieldset>
 
 			<fieldset name="display"
-				label="MOD_FEATCATS_FIELD_GROUP_LEADINGARTICLES_LABEL"
+				label="MOD_JOFAVCATS_FIELD_GROUP_LEADINGARTICLES_LABEL"
 			>
 
 				<field name="title_limit" type="text" default=""
-					label="MOD_FEATCATS_FIELD_TITLELIMIT_LABEL"
-					description="MOD_FEATCATS_FIELD_TITLELIMIT_DESC" />
+					label="MOD_JOFAVCATS_FIELD_TITLELIMIT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_TITLELIMIT_DESC" />
 
 				<field name="show_date" type="radio"
 					class="btn-group"
 					default="0"
 					label="JDATE"
-					description="MOD_FEATCATS_FIELD_SHOWDATE_DESC"
+					description="MOD_JOFAVCATS_FIELD_SHOWDATE_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -360,27 +363,27 @@
 				</field>
 
 				<field name="show_date_field" type="list" default="created"
-					label="MOD_FEATCATS_FIELD_DATEFIELD_LABEL"
-					description="MOD_FEATCATS_FIELD_DATEFIELD_DESC"
+					label="MOD_JOFAVCATS_FIELD_DATEFIELD_LABEL"
+					description="MOD_JOFAVCATS_FIELD_DATEFIELD_DESC"
 				>
-					<option value="created">MOD_FEATCATS_OPTION_CREATED_VALUE
+					<option value="created">MOD_JOFAVCATS_OPTION_CREATED_VALUE
 					</option>
-					<option value="modified">MOD_FEATCATS_OPTION_MODIFIED_VALUE
+					<option value="modified">MOD_JOFAVCATS_OPTION_MODIFIED_VALUE
 					</option>
-					<option value="publish_up">MOD_FEATCATS_OPTION_STARTPUBLISHING_VALUE
+					<option value="publish_up">MOD_JOFAVCATS_OPTION_STARTPUBLISHING_VALUE
 					</option>
 				</field>
 
 				<field name="show_date_format" type="text"
 					default="Y-m-d H:i:s"
-					label="MOD_FEATCATS_FIELD_DATEFIELDFORMAT_LABEL"
-					description="MOD_FEATCATS_FIELD_DATEFIELDFORMAT_DESC" />
+					label="MOD_JOFAVCATS_FIELD_DATEFIELDFORMAT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_DATEFIELDFORMAT_DESC" />
 
 				<field name="show_author" type="radio"
 					class="btn-group"
 					default="0"
 					label="JAUTHOR"
-					description="MOD_FEATCATS_FIELD_SHOWAUTHOR_DESC"
+					description="MOD_JOFAVCATS_FIELD_SHOWAUTHOR_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -390,26 +393,26 @@
 
 				<field name="show_introtext" type="list" 
 					default="1"
-					label="MOD_FEATCATS_FIELD_SHOWINTROTEXT_LABEL"
-					description="MOD_FEATCATS_FIELD_SHOWINTROTEXT_DESC"
+					label="MOD_JOFAVCATS_FIELD_SHOWINTROTEXT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_SHOWINTROTEXT_DESC"
 				>
-					<option value="1">MOD_FEATCATS_OPTION_INTROTEXT_LIMIT
+					<option value="1">MOD_JOFAVCATS_OPTION_INTROTEXT_LIMIT
 					</option>
-					<option value="2">MOD_FEATCATS_OPTION_INTROTEXT_FULL
+					<option value="2">MOD_JOFAVCATS_OPTION_INTROTEXT_FULL
 					</option>
 					<option value="0">JHIDE
 					</option>
 				</field>
 
 				<field name="introtext_limit" type="text" default="100"
-					label="MOD_FEATCATS_FIELD_INTROTEXTLIMIT_LABEL"
-					description="MOD_FEATCATS_FIELD_INTROTEXTLIMIT_DESC" />
+					label="MOD_JOFAVCATS_FIELD_INTROTEXTLIMIT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_INTROTEXTLIMIT_DESC" />
 
 				<field name="bold_firstsentence" type="radio"
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_BOLD_FIRSTSENTENCE_LABEL"
-					description="MOD_FEATCATS_FIELD_BOLD_FIRSTSENTENCE_DESC"
+					label="MOD_JOFAVCATS_FIELD_BOLD_FIRSTSENTENCE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_BOLD_FIRSTSENTENCE_DESC"
 				>
 					<option value="1">JYES
 					</option>
@@ -453,26 +456,26 @@
 
 				<field name="show_image" type="list"
 					default="0"
-					label="MOD_FEATCATS_FIELD_SHOWIMAGE_LABEL"
-					description="MOD_FEATCATS_FIELD_SHOWIMAGE_DESC"
+					label="MOD_JOFAVCATS_FIELD_SHOWIMAGE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_SHOWIMAGE_DESC"
 				>
 					<option value="0">JHIDE
 					</option>
-					<option value="1">MOD_FEATCATS_OPTION_IMAGE_1
+					<option value="1">MOD_JOFAVCATS_OPTION_IMAGE_1
 					</option>
-					<option value="2">MOD_FEATCATS_OPTION_IMAGE_2
+					<option value="2">MOD_JOFAVCATS_OPTION_IMAGE_2
 					</option>
 				</field>
 
 				<field name="def_image" type="media" default=""
-					label="MOD_FEATCATS_FIELD_DEF_IMAGE_LABEL"
-					description="MOD_FEATCATS_FIELD_DEF_IMAGE_DESC" />
+					label="MOD_JOFAVCATS_FIELD_DEF_IMAGE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_DEF_IMAGE_DESC" />
 
 				<field name="link_image" type="radio" 
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_LINKIMAGE_LABEL"
-					description="MOD_FEATCATS_FIELD_LINKIMAGE_DESC"
+					label="MOD_JOFAVCATS_FIELD_LINKIMAGE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_LINKIMAGE_DESC"
 				>
 					<option value="0">JNO
 					</option>
@@ -482,32 +485,32 @@
 
 				<field name="yt_image" type="list" 
 					default="0"
-					label="MOD_FEATCATS_FIELD_YOUTUBE_IMAGE_LABEL"
-					description="MOD_FEATCATS_FIELD_YOUTUBE_IMAGE_DESC"
+					label="MOD_JOFAVCATS_FIELD_YOUTUBE_IMAGE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_YOUTUBE_IMAGE_DESC"
 				>
-					<option value="0">MOD_FEATCATS_OPTION_YOUTUBE_IMAGE_HIDE
+					<option value="0">MOD_JOFAVCATS_OPTION_YOUTUBE_IMAGE_HIDE
 					</option>
-					<option value="1">MOD_FEATCATS_OPTION_YOUTUBE_IMAGE_PREVAIL
+					<option value="1">MOD_JOFAVCATS_OPTION_YOUTUBE_IMAGE_PREVAIL
 					</option>
-					<option value="2">MOD_FEATCATS_OPTION_YOUTUBE_IMAGE_ONLY
+					<option value="2">MOD_JOFAVCATS_OPTION_YOUTUBE_IMAGE_ONLY
 					</option>
 				</field>
 				
 				<field name="thumb_width" type="text" default="90"
-					label="MOD_FEATCATS_FIELD_THUMB_WIDTH_LABEL"
-					description="MOD_FEATCATS_FIELD_THUMB_WIDTH_DESC"
+					label="MOD_JOFAVCATS_FIELD_THUMB_WIDTH_LABEL"
+					description="MOD_JOFAVCATS_FIELD_THUMB_WIDTH_DESC"
 				/>
 				
 				<field name="thumb_height" type="text" default="90"
-					label="MOD_FEATCATS_FIELD_THUMB_HEIGHT_LABEL"
-					description="MOD_FEATCATS_FIELD_THUMB_HEIGHT_DESC"
+					label="MOD_JOFAVCATS_FIELD_THUMB_HEIGHT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_THUMB_HEIGHT_DESC"
 				/>
 
 				<field name="thumb_image" type="radio" 
 					class="btn-group"
 					default="1"
-					label="MOD_FEATCATS_FIELD_THUMB_IMAGE_LABEL"
-					description="MOD_FEATCATS_FIELD_THUMB_IMAGE_DESC"
+					label="MOD_JOFAVCATS_FIELD_THUMB_IMAGE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_THUMB_IMAGE_DESC"
 				>
 					<option value="1">JYES
 					</option>
@@ -516,47 +519,47 @@
 				</field>
 					
 				<field name="thumb_proportions" type="list" default="bestfit"
-					label="MOD_FEATCATS_FIELD_THUMB_PROPORTIONS_LABEL"
-					description="MOD_FEATCATS_FIELD_THUMB_PROPORTIONS_DESC"
+					label="MOD_JOFAVCATS_FIELD_THUMB_PROPORTIONS_LABEL"
+					description="MOD_JOFAVCATS_FIELD_THUMB_PROPORTIONS_DESC"
 				>
-					<option value="bestfit">MOD_FEATCATS_OPTION_PROP_BEST_FIT</option>
-					<option value="crop">MOD_FEATCATS_OPTION_PROP_CROP</option>
-					<option value="only_cut">MOD_FEATCATS_OPTION_PROP_ONLY_CUT</option>
-					<option value="fill">MOD_FEATCATS_OPTION_PROP_FILL</option>
-					<option value="transparent">MOD_FEATCATS_OPTION_PROP_TRANSP</option>
-					<!--<option value="stretch">MOD_FEATCATS_OPTION_PROP_STRECH</option>-->
+					<option value="bestfit">MOD_JOFAVCATS_OPTION_PROP_BEST_FIT</option>
+					<option value="crop">MOD_JOFAVCATS_OPTION_PROP_CROP</option>
+					<option value="only_cut">MOD_JOFAVCATS_OPTION_PROP_ONLY_CUT</option>
+					<option value="fill">MOD_JOFAVCATS_OPTION_PROP_FILL</option>
+					<option value="transparent">MOD_JOFAVCATS_OPTION_PROP_TRANSP</option>
+					<!--<option value="stretch">MOD_JOFAVCATS_OPTION_PROP_STRECH</option>-->
 				</field>
 				
 				<field name="thumb_bg" type="text" default="#FFFFFF" 
-					label="MOD_FEATCATS_FIELD_THUMB_BACKGROUND_LABEL" 
-					description="MOD_FEATCATS_FIELD_THUMB_BACKGROUND_DESC" 
+					label="MOD_JOFAVCATS_FIELD_THUMB_BACKGROUND_LABEL" 
+					description="MOD_JOFAVCATS_FIELD_THUMB_BACKGROUND_DESC" 
 				/>
 				
 				<field name="thumb_type" type="list" default="" 
-					label="MOD_FEATCATS_FIELD_THUMB_TYPE_LABEL"
-					description="MOD_FEATCATS_FIELD_THUMB_TYPE_DESC"
+					label="MOD_JOFAVCATS_FIELD_THUMB_TYPE_LABEL"
+					description="MOD_JOFAVCATS_FIELD_THUMB_TYPE_DESC"
 				>
-					<option value="">MOD_FEATCATS_OPTION_THUMB_TYPE_PRESERVE</option>
-					<option value="png">MOD_FEATCATS_OPTION_THUMB_TYPE_PNG</option>
-					<option value="gif">MOD_FEATCATS_OPTION_THUMB_TYPE_GIF</option>
-					<option value="jpeg">MOD_FEATCATS_OPTION_THUMB_TYPE_JPEG</option>
+					<option value="">MOD_JOFAVCATS_OPTION_THUMB_TYPE_PRESERVE</option>
+					<option value="png">MOD_JOFAVCATS_OPTION_THUMB_TYPE_PNG</option>
+					<option value="gif">MOD_JOFAVCATS_OPTION_THUMB_TYPE_GIF</option>
+					<option value="jpeg">MOD_JOFAVCATS_OPTION_THUMB_TYPE_JPEG</option>
 				</field>
 				
 			</fieldset>
 			
 			<fieldset name="display2"
-				label="MOD_FEATCATS_FIELD_GROUP_SUBARTICLES_LABEL"
+				label="MOD_JOFAVCATS_FIELD_GROUP_SUBARTICLES_LABEL"
 			>
 
 				<field name="title_limit2" type="text" default=""
-					label="MOD_FEATCATS_FIELD_TITLELIMIT2_LABEL"
-					description="MOD_FEATCATS_FIELD_TITLELIMIT2_DESC" />
+					label="MOD_JOFAVCATS_FIELD_TITLELIMIT2_LABEL"
+					description="MOD_JOFAVCATS_FIELD_TITLELIMIT2_DESC" />
 
 				<field name="show_date2" type="radio"
 					class="btn-group"
 					default="0"
 					label="JDATE"
-					description="MOD_FEATCATS_FIELD_SHOWDATE_DESC"
+					description="MOD_JOFAVCATS_FIELD_SHOWDATE_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -568,7 +571,7 @@
 					class="btn-group"
 					default="0"
 					label="JAUTHOR"
-					description="MOD_FEATCATS_FIELD_SHOWAUTHOR_DESC"
+					description="MOD_JOFAVCATS_FIELD_SHOWAUTHOR_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -578,20 +581,20 @@
 
 				<field name="show_introtext2" type="list" 
 					default="0"
-					label="MOD_FEATCATS_FIELD_SHOWINTROTEXT_LABEL"
-					description="MOD_FEATCATS_FIELD_SHOWINTROTEXT_DESC"
+					label="MOD_JOFAVCATS_FIELD_SHOWINTROTEXT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_SHOWINTROTEXT_DESC"
 				>
-					<option value="1">MOD_FEATCATS_OPTION_INTROTEXT_LIMIT
+					<option value="1">MOD_JOFAVCATS_OPTION_INTROTEXT_LIMIT
 					</option>
-					<option value="2">MOD_FEATCATS_OPTION_INTROTEXT_FULL
+					<option value="2">MOD_JOFAVCATS_OPTION_INTROTEXT_FULL
 					</option>
 					<option value="0">JHIDE
 					</option>
 				</field>
 
 				<field name="introtext_limit2" type="text" default="100"
-					label="MOD_FEATCATS_FIELD_INTROTEXTLIMIT_LABEL"
-					description="MOD_FEATCATS_FIELD_INTROTEXTLIMIT_DESC" />
+					label="MOD_JOFAVCATS_FIELD_INTROTEXTLIMIT_LABEL"
+					description="MOD_JOFAVCATS_FIELD_INTROTEXTLIMIT_DESC" />
 
 				<field
 					name="show_readmore2"
@@ -630,14 +633,14 @@
 			</fieldset>
 			
 			<fieldset name="pagination"
-				label="MOD_FEATCATS_FIELD_GROUP_PAGINATION_LABEL"
+				label="MOD_JOFAVCATS_FIELD_GROUP_PAGINATION_LABEL"
 			>
 
 				<field name="pag_1" type="radio"
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_PAG_1_LABEL"
-					description="MOD_FEATCATS_FIELD_PAG_1_DESC"
+					label="MOD_JOFAVCATS_FIELD_PAG_1_LABEL"
+					description="MOD_JOFAVCATS_FIELD_PAG_1_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -648,8 +651,8 @@
 				<field name="pag_2" type="radio"
 					class="btn-group"
 					default="1"
-					label="MOD_FEATCATS_FIELD_PAG_2_LABEL"
-					description="MOD_FEATCATS_FIELD_PAG_2_DESC"
+					label="MOD_JOFAVCATS_FIELD_PAG_2_LABEL"
+					description="MOD_JOFAVCATS_FIELD_PAG_2_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -660,8 +663,8 @@
 				<field name="pag_3" type="radio"
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_PAG_3_LABEL"
-					description="MOD_FEATCATS_FIELD_PAG_3_DESC"
+					label="MOD_JOFAVCATS_FIELD_PAG_3_LABEL"
+					description="MOD_JOFAVCATS_FIELD_PAG_3_DESC"
 				>
 					<option value="1">JSHOW
 					</option>
@@ -670,13 +673,13 @@
 				</field>
 								
 				<field name="pag_count" type="text" default="" 
-					label="MOD_FEATCATS_FIELD_PAG_TOTAL_LABEL" 
-					description="MOD_FEATCATS_FIELD_PAG_TOTAL_DESC" 
+					label="MOD_JOFAVCATS_FIELD_PAG_TOTAL_LABEL" 
+					description="MOD_JOFAVCATS_FIELD_PAG_TOTAL_DESC" 
 				/>
 								
 				<field name="limit" type="text" default="" 
-					label="MOD_FEATCATS_FIELD_PAG_LIMIT_LABEL" 
-					description="MOD_FEATCATS_FIELD_PAG_LIMIT_DESC" 
+					label="MOD_JOFAVCATS_FIELD_PAG_LIMIT_LABEL" 
+					description="MOD_JOFAVCATS_FIELD_PAG_LIMIT_DESC" 
 				/>
 					
 			</fieldset>
@@ -690,13 +693,13 @@
 					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
 					
 				<field name="add_css" type="filelist" 
-					directory="modules/mod_featcats/assets"
+					directory="media/mod_jofavcats/css"
 					hide_none="0"
 					hide_default="1"
 					filter=".css"
-					default="featcats.css"
-					label="MOD_FEATCATS_FIELD_ADDCSS_LABEL"
-					description="MOD_FEATCATS_FIELD_ADDCSS_DESC">
+					default="jofavcats.css"
+					label="MOD_JOFAVCATS_FIELD_ADDCSS_LABEL"
+					description="MOD_JOFAVCATS_FIELD_ADDCSS_DESC">
 				</field>
 
 				<field name="owncache" type="list" default="1"
@@ -712,8 +715,8 @@
 				<field name="hide1" type="radio"
 					class="btn-group"
 					default="0"
-					label="MOD_FEATCATS_FIELD_HIDE_1_LABEL"
-					description="MOD_FEATCATS_FIELD_HIDE_1_DESC"
+					label="MOD_JOFAVCATS_FIELD_HIDE_1_LABEL"
+					description="MOD_JOFAVCATS_FIELD_HIDE_1_DESC"
 				>
 					<option value="1">JYES
 					</option>

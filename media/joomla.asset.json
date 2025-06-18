@@ -6,25 +6,25 @@
   "license": "GPL-2.0+",
   "assets": [
    {
-      "name": "module.featcats",
+      "name": "module.jofavcats",
       "type": "script",
-      "uri": "mod_featcats/featcats.js",
+      "uri": "mod_jofavcats/jofavcats.js",
       "dependencies": [
         "core",
         "jquery"
       ]
     },
     {
-      "name": "module.featcats",
+      "name": "module.jofavcats",
       "type": "style",
-      "uri": "mod_featcats/featcats.css"
+      "uri": "mod_jofavcats/jofavcats.css"
     },
     {
-      "name": "module.featcats",
+      "name": "module.jofavcats",
       "type": "preset",
       "dependencies": [
-        "module.featcats#style",
-        "module.featcats#script"
+        "module.jofavcats#style",
+        "module.jofavcats#script"
       ]
     }
   ]

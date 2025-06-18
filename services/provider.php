@@ -1,12 +1,14 @@
 <?php
 
-/**
- * @package     Joomla.Site
- * @subpackage  mod_featcats
- *
- * @copyright   (C) 2025 JL TRYOEN  <https://www.jltryoen.fr>
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
- */
+/*------------------------------------------------------------------------
+# mod_jofavcats - JO Favorite Categories
+# ------------------------------------------------------------------------
+# author    JL TRYOEN / Jesús Vargas Garita
+# Copyright (C) 2010 www.joomlahill.com. All Rights Reserved.
+# Copyright (C) 2025 www.jltryoen.fr All Rights Reserved.
+# @license  http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+# Websites: http://www.jltryoen.fr http://www.joomlahill.com
+-------------------------------------------------------------------------*/
 
 \defined('_JEXEC') or die;
 
@@ -33,8 +35,8 @@ return new class () implements ServiceProviderInterface {
      */
     public function register(Container $container)
     {
-        $container->registerServiceProvider(new ModuleDispatcherFactoryServiceProvider('\\JLTRY\\Module\\FeatCats'));
-        $container->registerServiceProvider(new HelperFactoryServiceProvider('\\JLTRY\\Module\\FeatCats\\Site\\Helper'));
+        $container->registerServiceProvider(new ModuleDispatcherFactoryServiceProvider('\\JLTRY\\Module\\JOFavCats'));
+        $container->registerServiceProvider(new HelperFactoryServiceProvider('\\JLTRY\\Module\\JOFavCats\\Site\\Helper'));
         $container->registerServiceProvider(new ModuleServiceProvider());
     }
 };

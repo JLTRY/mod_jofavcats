@@ -1,15 +1,15 @@
 <?php
 /*------------------------------------------------------------------------
-# mod_featcats - Featured Categories
+# mod_jofavcats - JO Favorite Categories
 # ------------------------------------------------------------------------
-# author    Jesús Vargas Garita
+# author    JL TRYOEN / Jesús Vargas Garita
 # Copyright (C) 2010 www.joomlahill.com. All Rights Reserved.
-# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
-# Websites: http://www.joomlahill.com
-# Technical Support:  Forum - http://www.joomlahill.com/forum
+# Copyright (C) 2025 www.jltryoen.fr All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL
+# Websites: http://www.jltryoen.fr http://www.joomlahill.com
 -------------------------------------------------------------------------*/
 
-namespace JLTRY\Module\FeatCats\Site\Helper;
+namespace JLTRY\Module\JOFavCats\Site\Helper;
 
 defined('_JEXEC') or die;
 
@@ -479,7 +479,7 @@ class FeatCatsHelper
 			return false;
 		}
 
-		$image = $img_base."modules/mod_featcats/thumbs/$sub_folder/" . urlencode(basename($thumb_path));
+		$image = $img_base."modules/mod_jofavcats/thumbs/$sub_folder/" . urlencode(basename($thumb_path));
 
 		return  HTMLHelper::_('image', $image, $alt, $attribs);
     }
