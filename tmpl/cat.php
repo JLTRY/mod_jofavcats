@@ -12,6 +12,8 @@
 defined('_JEXEC') or die; 
 
 use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\HTML\HTMLHelper;
 
 $show_introtext = $params->get('show_introtext', 0);
 $show_introtext2 = $params->get('show_introtext2', 0);
@@ -57,19 +59,19 @@ $show_introtext2 = $params->get('show_introtext2', 0);
                     <p class="fc_readmore">
                         <a class="fc_title <?php echo $article->active; ?>" href="<?php echo $article->link; ?>"<?php echo ($params->get('link_target') == 1 ? ' target="_blank"' : ''); ?>>
                         <?php if ($article->params->get('access-view')== FALSE) :
-                                echo JText::_('MOD_JOFAVCATS_REGISTER_TO_READ_MORE');
+                                echo Text::_('MOD_JOFAVCATS_REGISTER_TO_READ_MORE');
                             elseif ($readmore = $article->alternative_readmore) :
                                 echo $readmore;
-                                echo JHtml::_('string.truncate', $article->title, $params->get('readmore_limit'));
+                                echo HTMLHelper::_('string.truncate', $article->title, $params->get('readmore_limit'));
                                 if ($params->get('show_readmore_title', 0) != 0) :
-                                    echo JHtml::_('string.truncate', ($article->title), $params->get('readmore_limit'));
+                                    echo HTMLHelper::_('string.truncate', ($article->title), $params->get('readmore_limit'));
                                 endif;
                             elseif ($params->get('show_readmore_title', 0) == 0) :
-                                echo JText::sprintf('MOD_JOFAVCATS_READ_MORE_TITLE');
+                                echo Text::sprintf('MOD_JOFAVCATS_READ_MORE_TITLE');
                             else :
                                 
-                                echo JText::_('MOD_JOFAVCATS_READ_MORE');
-                                echo JHtml::_('string.truncate', ($article->title), $params->get('readmore_limit'));
+                                echo Text::_('MOD_JOFAVCATS_READ_MORE');
+                                echo HTMLHelper::_('string.truncate', ($article->title), $params->get('readmore_limit'));
                             endif; ?>
 						</a>
                     </p>
