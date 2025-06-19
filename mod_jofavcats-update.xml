@@ -6,10 +6,10 @@
 		<element>mod_jofavcats</element>
 		<type>module</type>
 		<client>site</client>
-		<version>5.0.0</version>
+		<version>5.0.1</version>
 		<infourl title="JOFavCats">http://www.jltryoen.fr</infourl>
 		<downloads>
-			<downloadurl type="full" format="zip">https://github.com/JLTRY/mod_jofavcats/releases/download/v5.0.0/mod_jofavcats-5.0.0.zip</downloadurl>
+			<downloadurl type="full" format="zip">https://github.com/JLTRY/mod_jofavcats/releases/download/v5.0.1/mod_jofavcats-5.0.1.zip</downloadurl>
 		</downloads>
 		<tags>
 			<tag>Stable</tag>
@@ -18,9 +18,9 @@
 		<maintainerurl>http://www.jltryoen.fr</maintainerurl>
 		<php_minimum>8.0</php_minimum>
 		<targetplatform name="joomla" version="(4\.[01234]|5\.[0123])"/>
-		<sha256>86DAFD25522C76F4704424F4463ACC094D4EFA809038E4122C4105713296A67E</sha256>
-		<sha384>D9EBCED84C46CD901691653D4663EFF63140A1472F43151636034995148446F542E68D924C14431E84AA8C9F1E5322F9</sha384>
-		<sha512>40086B9F361F572B018A7B07949E2945B1DDF650C9DB17D4C252317004EBE139AE577BCDF144DA7BC540AD59ADB884503AFED9CF68548D40959E76A2E3C88BB5</sha512>
+		<sha256>BF268D83CDA6C9E578F68216DD2494922A0E6618772F4B2DDB7F9571F2F6C8BE</sha256>
+		<sha384>EFFD0068E9F52B800FC46DCC032AEEDE4902FC474A92D8279AC5580E5EFC1640A53B00A76258F7B383E6882E31073ED2</sha384>
+		<sha512>AD05AF7FEFC52783D8FE6A033913FD19800FD8C4FE294664B6122BFAC461C81DB50851E22F86F32DA8A81B6A268E79FFE8CF75F0B80BDDE7C9F6D50A23ECF7F7</sha512>
 	</update>
 </updates>
 

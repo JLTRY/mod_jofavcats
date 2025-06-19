@@ -15,12 +15,17 @@ defined('_JEXEC') or die;
 
 
 use Joomla\CMS\Categories\Categories;
+use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
+use Joomla\CMS\MVC\Model\BaseDatabaseModel;
 use Joomla\CMS\Router\Route;
-use \Joomla\CMS\Uri\Uri;
+use Joomla\CMS\Uri\Uri;
+use Joomla\Component\Content\Site\Helper\RouteHelper;
+use Joomla\Registry\Registry;
+ 
 
-class FeatCatsHelper
+class JoFavCatsHelper
 {
 	public static function getList(&$params)
 	{
@@ -66,18 +71,18 @@ class FeatCatsHelper
 
 				$category = $categories->get($catid);
 				$groups[$catid]->category_title = $category->title;
-				$groups[$catid]->category_link  = Route::_(\ContentHelperRoute::getCategoryRoute($catid));
+				$groups[$catid]->category_link  = Route::_(RouteHelper::getCategoryRoute($catid));
 
 				if ($cat_image) :
 					$catParams = $category->params;
-					$registry = new JRegistry;
+					$registry = new Registry;
 					$registry->loadString($category->params);
 					$groups[$catid]->category_image = $registry->get('image');
 				endif;
 
 				$groups[$catid]->articles = array();
 
-				$articles = \JModelLegacy::getInstance('Articles', 'ContentModel', array('ignore_request' => true));
+				$articles = BaseDatabaseModel::getInstance('Articles', 'ContentModel', array('ignore_request' => true));
 
 				$articles->setState(
 					'list.select',
@@ -96,14 +101,15 @@ class FeatCatsHelper
 				$articles->setState('list.limit', $limit);
 				$articles->setState('filter.published', 1);
 
-				$access = !\JComponentHelper::getParams('com_content')->get('show_noauth');
-				$authorised = \JAccess::getAuthorisedViewLevels(Factory::getUser()->get('id'));
+				$access = !ComponentHelper::getParams('com_content')->get('show_noauth');
+				$user = Factory::getApplication()->getIdentity();
+				$levels = $user->getAuthorisedViewLevels();
 				$articles->setState('filter.access', $access);
 
 				$articles->setState('filter.category_id.include', 1);
 
 				if ($params->get('show_child_category_articles', 0) && (int)$params->get('levels', 0) > 0) {
-					$subcategories = \JModelLegacy::getInstance('Categories', 'ContentModel', array('ignore_request' => true));
+					$subcategories = BaseDatabaseModel::getInstance('Categories', 'ContentModel', array('ignore_request' => true));
 					$subcategories->setState('params', $appParams);
 					$levels = $params->get('levels', 1) ? $params->get('levels', 1) : 9999;
 					$subcategories->setState('filter.get_children', $levels);
@@ -202,7 +208,7 @@ class FeatCatsHelper
 						$items[$j]->catslug = $items[$j]->catid ? $items[$j]->catid .':'.$items[$j]->category_alias : $items[$j]->catid;
 
 						if ($access || in_array($items[$j]->access, $authorised)) {
-							$items[$j]->link = Route::_(\ContentHelperRoute::getArticleRoute($items[$j]->slug, $items[$j]->catslug));
+							$items[$j]->link = Route::_(RouteHelper::getArticleRoute($items[$j]->slug, $items[$j]->catslug));
 						}
 						 else {
 							$app	= Factory::getApplication();

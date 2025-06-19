@@ -1,4 +1,4 @@
-VERSION = "5.0.0"
+VERSION = "5.0.1"
 VERSION2 = $(shell echo $(VERSION)|sed 's/ /-/g')
 ZIPFILE = mod_jofavcats-$(VERSION2).zip
 UPDATEFILE =  mod_jofavcats-update.xml

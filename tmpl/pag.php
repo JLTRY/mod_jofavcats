@@ -9,7 +9,9 @@
 # Websites: http://www.jltryoen.fr http://www.joomlahill.com
 -------------------------------------------------------------------------*/
 
-defined('_JEXEC') or die; 
+defined('_JEXEC') or die;
+
+use \Joomla\CMS\Factory;
 
 $pagcount = $params->get('pag_count', '');
 $first_page = 0;
@@ -21,7 +23,7 @@ if ($pagcount && $pagcount<$last_page) {
 	endif;
 	$last_page = $first_page+$pagcount;
 }
-$Itemid = JFactory::getApplication()->input->getInt('Itemid');
+$Itemid = Factory::getApplication()->input->getInt('Itemid');
 			?>
 <div class="fc_pag" id="fc_pag-<?php echo $mid; ?>-<?php echo $id; ?>">
 	<?php if ($params->get('pag_1', 0)) : ?>

@@ -10,8 +10,8 @@
 -------------------------------------------------------------------------*/
 namespace JLTRY\Module\JOFavCats\Site\Dispatcher;
 
-
 use Joomla\CMS\Dispatcher\AbstractModuleDispatcher;
+use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\HelperFactoryAwareInterface;
 use Joomla\CMS\Helper\HelperFactoryAwareTrait;
 use Joomla\CMS\Helper\ModuleHelper;
@@ -40,10 +40,10 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 		$data   = parent::getLayoutData();
 		$params = $data['params'];
 
-		if ($params->get('hide1', 0) && (JRequest::getCmd('option')=='com_content' && JRequest::getCmd('view')=='article')) {
+		if ($params->get('hide1', 0) && (Factory::getApplication()->input->get('option')=='com_content' && Factory::getApplication()->input->get('view')=='article')) {
 			return array();
 		} else {
-			$cats = $this->getHelperFactory()->getHelper('FeatCatsHelper')::getList($params);
+			$cats = $this->getHelperFactory()->getHelper('JoFavCatsHelper')::getList($params);
 			if (!empty($cats)) {
 
 				if (!$params->get('mid')) { 
@@ -57,7 +57,8 @@ class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareI
 							'input'    => $this->input,
 							'params'   => new Registry($this->module->params),
 							'template' => 'default',
-							'cats' => $cats);
+							'cats' => $cats,
+							'mi' => $mid);
 			} else {
 				return array();
 			}

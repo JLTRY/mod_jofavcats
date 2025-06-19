@@ -4,14 +4,14 @@
 	version="3.0" 
 	client="site"
 	method="upgrade">
-	<name>JO Favorite Categories</name>
+	<name>JO's Favorite Categories</name>
 	<author>JL TRYOEN/Joomla!Vargas</author>
-	<creationDate>June 2025</creationDate>
+	<creationDate>June 21, 2025</creationDate>
 	<copyright>Copyright (C) 2025 JL TRYOEN. All rights reserved.</copyright>
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
 	<authorEmail>jltryoen@orange.fr;chuzky@gmail.com</authorEmail>
 	<authorUrl>http://www.jltryoen.fr http://www.joomlahill.com</authorUrl>
-	<version>5.0.0</version>
+	<version>5.0.1</version>
 	<namespace path="src">JLTRY\Module\JOFavCats</namespace>
 	<description>MOD_JOFAVCATS_XML_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>

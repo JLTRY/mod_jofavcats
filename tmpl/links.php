@@ -9,7 +9,10 @@
 # Websites: http://www.jltryoen.fr http://www.joomlahill.com
 -------------------------------------------------------------------------*/
 
-defined('_JEXEC') or die; 
+defined('_JEXEC') or die;
+
+use Joomla\CMS\Language\Text;
+use Joomla\CMS\HTML\HTMLHelper;
 ?>
   	  	<ul class="fc_links">
 			<?php if ( $cat->subarticles) : foreach ($cat->subarticles as $subarticle) : ?>
@@ -43,19 +46,19 @@ defined('_JEXEC') or die;
 					<div class="fc_readmore2">
 						<a class="fc_title <?php echo $subarticle->active; ?>" href="<?php echo $subarticle->link; ?>"<?php echo ($params->get('link_target') == 1 ? ' target="_blank"' : ''); ?>>
 						<?php if ($subarticle->params->get('access-view')== FALSE) :
-								echo JText::_('MOD_JOFAVCATS_REGISTER_TO_READ_MORE');
+								echo Text::_('MOD_JOFAVCATS_REGISTER_TO_READ_MORE');
 							elseif ($readmore = $subarticle->alternative_readmore) :
 								echo $readmore;
-								echo JHtml::_('string.truncate', $subarticle->title, $params->get('readmore_limit2'));
+								echo HTMLHelper::_('string.truncate', $subarticle->title, $params->get('readmore_limit2'));
 								if ($params->get('show_readmore_title2', 0) != 0) :
-									echo JHtml::_('string.truncate', ($subarticle->title), $params->get('readmore_limit2'));
+									echo HTMLHelper::_('string.truncate', ($subarticle->title), $params->get('readmore_limit2'));
 								endif;
 							elseif ($params->get('show_readmore_title2', 0) == 0) :
-								echo JText::sprintf('MOD_JOFAVCATS_READ_MORE_TITLE');	
+								echo Text::sprintf('MOD_JOFAVCATS_READ_MORE_TITLE');	
 							else :
 								
-								echo JText::_('MOD_JOFAVCATS_READ_MORE');
-								echo JHtml::_('string.truncate', ($subarticle->title), $params->get('readmore_limit2'));
+								echo Text::_('MOD_JOFAVCATS_READ_MORE');
+								echo HTMLHelper::_('string.truncate', ($subarticle->title), $params->get('readmore_limit2'));
 							endif; ?>
 						</a>
 					</div>
@@ -63,6 +66,6 @@ defined('_JEXEC') or die;
 				</li>
 			<?php endforeach; endif; ?>
 			<?php if ( $show_more==1 ) : ?>
-				<li class="fc_more"><a href="<?php echo $cat->category_link; ?>"><?php echo JText::_('MOD_JOFAVCATS_MORE_ARTICLES'); ?></a></li>
+				<li class="fc_more"><a href="<?php echo $cat->category_link; ?>"><?php echo Text::_('MOD_JOFAVCATS_MORE_ARTICLES'); ?></a></li>
 			<?php endif; ?>
 			</ul>

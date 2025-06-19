@@ -10,12 +10,12 @@
 -------------------------------------------------------------------------*/
 
 defined('_JEXEC') or die;
-define("DS", DIRECTORY_SEPARATOR);
+
 use Joomla\CMS\Factory;
 use Joomla\CMS\Installer\InstallerAdapter;
 use Joomla\CMS\Installer\InstallerScriptInterface;
 use Joomla\CMS\Language\Text;
-use Joomla\CMS\Filesystem\Folder;
+use Joomla\Filesystem\Folder;
 use Joomla\CMS\Log\Log;
 
 return new class () implements InstallerScriptInterface {
@@ -26,11 +26,11 @@ return new class () implements InstallerScriptInterface {
     private function mkdirThumbs()
     {
         try {
-          $thumbFolder = JPATH_SITE . DS.  'modules' . DS . 'mod_jofavcats' . DS . 'thumbs';
+          $thumbFolder = JPATH_SITE . DIRECTORY_SEPARATOR.  'modules' . DIRECTORY_SEPARATOR . 'mod_jofavcats' . DIRECTORY_SEPARATOR . 'thumbs';
 		  Log::add("mod_jofavcats install . $thumbFolder" , Log::INFO, 'extension-installation'); 
           Folder::create($thumbFolder);
           for ($i = 0; $i < 10; $i++) {
-              Folder::create($thumbFolder . DS . "0" . "$i");
+              Folder::create($thumbFolder . DIRECTORY_SEPARATOR . "0" . "$i");
           }
        } catch (\FilesystemException $e) {
           echo Text::sprintf('FILES_JOOMLA_ERROR_FILE_FOLDER', $e) . '<br>';
