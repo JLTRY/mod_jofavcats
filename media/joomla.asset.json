@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
-  "name": "featcats",
-  "version": "3.2.6",
+  "name": "mod_jofavcats",
+  "version": "5.0.0",
   "description": "This module displays a list of articles from your featured categories",
   "license": "GPL-2.0+",
   "assets": [
