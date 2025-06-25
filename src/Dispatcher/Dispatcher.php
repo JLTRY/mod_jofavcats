@@ -1,4 +1,5 @@
 <?php
+
 /*------------------------------------------------------------------------
 # mod_jofavcats - JO Favorite Categories
 # ------------------------------------------------------------------------
@@ -29,39 +30,44 @@ use Joomla\Registry\Registry;
 class Dispatcher extends AbstractModuleDispatcher implements HelperFactoryAwareInterface
 {
     use HelperFactoryAwareTrait;
-	/**
-	 * Returns the layout data.
-	 *
-	 * @return  array
-	 *
-	 * @since   5.2.0
-	 */
-	protected function getLayoutData(): array {
-		$data   = parent::getLayoutData();
-		$params = $data['params'];
 
-		if ($params->get('hide1', 0) && (Factory::getApplication()->input->get('option')=='com_content' && Factory::getApplication()->input->get('view')=='article')) {
-			return array();
-		} else {
-			$cats = $this->getHelperFactory()->getHelper('JoFavCatsHelper')::getList($params);
-			if (!empty($cats)) {
+    /**
+     * Returns the layout data.
+     *
+     * @return  array
+     *
+     * @since   5.2.0
+     */
+    protected function getLayoutData(): array
+    {
+        $data   = parent::getLayoutData();
+        $params = $data['params'];
 
-				if (!$params->get('mid')) { 
-					$mid = $this->module->id;
-				} else {
-					$mid = $params->get('mid');
-				}
-				return array(
-							'module'   => $this->module,
-							'app'      => $this->app,
-							'input'    => $this->input,
-							'params'   => new Registry($this->module->params),
-							'template' => 'default',
-							'cats' => $cats,
-							'mi' => $mid);
-			} else {
-				return array();
-			}
-		}
-	}
+        if (
+            $params->get('hide1', 0) &&
+            Factory::getApplication()->input->get('option') == 'com_content' &&
+            Factory::getApplication()->input->get('view') == 'article'
+        ) {
+            return array();
+        } else {
+            $cats = $this->getHelperFactory()->getHelper('JoFavCatsHelper')::getList($params);
+            if (!empty($cats)) {
+                if (!$params->get('mid')) {
+                    $mid = $this->module->id;
+                } else {
+                    $mid = $params->get('mid');
+                }
+                return array(
+                            'module'   => $this->module,
+                            'app'      => $this->app,
+                            'input'    => $this->input,
+                            'params'   => new Registry($this->module->params),
+                            'template' => 'default',
+                            'cats' => $cats,
+                            'mi' => $mid);
+            } else {
+                return array();
+            }
+        }
+    }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /*------------------------------------------------------------------------
 # mod_jofavcats - JO Favorite Categories
 # ------------------------------------------------------------------------
@@ -19,27 +20,27 @@ use Joomla\Filesystem\Folder;
 use Joomla\CMS\Log\Log;
 
 return new class () implements InstallerScriptInterface {
-
     private string $minimumJoomla = '5.0.0';
     private string $minimumPhp    = '7.4.0';
 
     private function mkdirThumbs()
     {
         try {
-          $thumbFolder = JPATH_SITE . DIRECTORY_SEPARATOR.  'modules' . DIRECTORY_SEPARATOR . 'mod_jofavcats' . DIRECTORY_SEPARATOR . 'thumbs';
-		  Log::add("mod_jofavcats install . $thumbFolder" , Log::INFO, 'extension-installation'); 
-          Folder::create($thumbFolder);
-          for ($i = 0; $i < 10; $i++) {
-              Folder::create($thumbFolder . DIRECTORY_SEPARATOR . "0" . "$i");
-          }
-       } catch (\FilesystemException $e) {
-          echo Text::sprintf('FILES_JOOMLA_ERROR_FILE_FOLDER', $e) . '<br>';
-       }
+            $thumbFolder =  JPATH_SITE . DIRECTORY_SEPARATOR . 'modules' .
+                            DIRECTORY_SEPARATOR . 'mod_jofavcats' . DIRECTORY_SEPARATOR . 'thumbs';
+            Log::add("mod_jofavcats install . $thumbFolder", Log::INFO, 'extension-installation');
+            Folder::create($thumbFolder);
+            for ($i = 0; $i < 10; $i++) {
+                Folder::create($thumbFolder . DIRECTORY_SEPARATOR . "0" . "$i");
+            }
+        } catch (\FilesystemException $e) {
+            echo Text::sprintf('FILES_JOOMLA_ERROR_FILE_FOLDER', $e) . '<br>';
+        }
     }
 
     public function install(InstallerAdapter $adapter): bool
     {
-        Log::add("mod_jofavcats install" , Log::INFO, 'extension-installation'); 
+        Log::add("mod_jofavcats install", Log::INFO, 'extension-installation');
         $this->mkdirThumbs();
         return true;
     }
@@ -47,28 +48,34 @@ return new class () implements InstallerScriptInterface {
     public function update(InstallerAdapter $adapter): bool
     {
 
-        Log::add("mod_jofavcats update" , Log::INFO, 'extension-installation'); 
-		$this->mkdirThumbs();
+        Log::add("mod_jofavcats update", Log::INFO, 'extension-installation');
+        $this->mkdirThumbs();
         return true;
     }
 
     public function uninstall(InstallerAdapter $adapter): bool
     {
-        Log::add("mod_jofavcats uninstall" , Log::INFO, 'extension-installation'); 
+        Log::add("mod_jofavcats uninstall", Log::INFO, 'extension-installation');
         return true;
     }
 
     public function preflight(string $type, InstallerAdapter $adapter): bool
     {
-        Log::add("mod_jofavcats preflight" , Log::INFO, 'extension-installation'); 
-        
+        Log::add("mod_jofavcats preflight", Log::INFO, 'extension-installation');
+
         if (version_compare(PHP_VERSION, $this->minimumPhp, '<')) {
-            Factory::getApplication()->enqueueMessage(sprintf(Text::_('JLIB_INSTALLER_MINIMUM_PHP'), $this->minimumPhp), 'error');
+            Factory::getApplication()->enqueueMessage(sprintf(
+                Text::_('JLIB_INSTALLER_MINIMUM_PHP'),
+                $this->minimumPhp
+            ), 'error');
             return false;
         }
 
         if (version_compare(JVERSION, $this->minimumJoomla, '<')) {
-            Factory::getApplication()->enqueueMessage(sprintf(Text::_('JLIB_INSTALLER_MINIMUM_JOOMLA'), $this->minimumJoomla), 'error');
+            Factory::getApplication()->enqueueMessage(sprintf(
+                Text::_('JLIB_INSTALLER_MINIMUM_JOOMLA'),
+                $this->minimumJoomla
+            ), 'error');
             return false;
         }
 
@@ -77,8 +84,7 @@ return new class () implements InstallerScriptInterface {
 
     public function postflight(string $type, InstallerAdapter $adapter): bool
     {
-        Log::add("mod_jofavcats postflight" , Log::INFO, 'extension-installation'); 
+        Log::add("mod_jofavcats postflight", Log::INFO, 'extension-installation');
         return true;
     }
-
 };

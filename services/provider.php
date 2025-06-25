@@ -35,8 +35,12 @@ return new class () implements ServiceProviderInterface {
      */
     public function register(Container $container)
     {
-        $container->registerServiceProvider(new ModuleDispatcherFactoryServiceProvider('\\JLTRY\\Module\\JOFavCats'));
-        $container->registerServiceProvider(new HelperFactoryServiceProvider('\\JLTRY\\Module\\JOFavCats\\Site\\Helper'));
+        $container->registerServiceProvider(
+            new ModuleDispatcherFactoryServiceProvider('\\JLTRY\\Module\\JOFavCats')
+        );
+        $container->registerServiceProvider(
+            new HelperFactoryServiceProvider('\\JLTRY\\Module\\JOFavCats\\Site\\Helper')
+        );
         $container->registerServiceProvider(new ModuleServiceProvider());
     }
 };
