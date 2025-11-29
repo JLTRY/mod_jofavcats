@@ -423,8 +423,8 @@ class JoFavCatsHelper
                 urlencode($img_name) . '.' . $img_ext
             );
 
-            //$thumb_path = __DIR__ . '/thumbs/' . $sub_folder . '/' . $thumb_file;
-            $thumb_path = dirname(__FILE__) . '/../../thumbs/' . $sub_folder . '/' . $thumb_file;
+            //$thumb_path = dirname(__FILE__) . '/../../thumbs/' . $sub_folder . '/' . $thumb_file;
+            $thumb_path = JPATH_ROOT . '/files/mod_jofavcats/thumbs/'. $sub_folder . '/' . $thumb_file;
 
             $attribs = array();
 
@@ -525,7 +525,7 @@ class JoFavCatsHelper
                         $errors[] = 'Could not create image:<br />' . $thumb_path .
                         ' in mod_featcats.<br /> Check if the folder exists and \
                         if you have write permissions:<br /> ' .
-                        dirname(__FILE__) . '/thumbs/' . $sub_folder;
+                        JPATH_ROOT . '/files/mod_jofavcats/thumbs/' . $sub_folder;
                     }
                     $disablepermissionwarning = true;
                 } else {
@@ -539,7 +539,7 @@ class JoFavCatsHelper
             return false;
         }
 
-        $image = $img_base . "modules/mod_jofavcats/thumbs/$sub_folder/" . urlencode(basename($thumb_path));
+        $image = $img_base . "files/mod_jofavcats/thumbs/$sub_folder/" . urlencode(basename($thumb_path));
 
         return  HTMLHelper::_('image', $image, $alt, $attribs);
     }

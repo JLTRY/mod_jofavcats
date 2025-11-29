@@ -1,4 +1,4 @@
-VERSION = "5.0.1"
+VERSION = "5.0.2"
 VERSION2 = $(shell echo $(VERSION)|sed 's/ /-/g')
 PACKAGE = mod_jofavcats
 ZIPFILE = $(PACKAGE)-$(VERSION2).zip
@@ -14,13 +14,13 @@ ALL : $(ZIPFILE) fixsha
 
 
 
-ZIPIGNORES = -x "*.git*" -x "*.svn*" -x "thumbs/*" -x "*.zip"
+ZIPIGNORES = -x "*.git*" -x "*.svn*" -x "thumbs/*" -x "*.zip" -x "*.png" -x "*.jpg"
 
 
 
 $(ZIPFILE): 
 	@echo "-------------------------------------------------------"
-	@echo "Creating zip file for: $*"
+	@echo "Creating zip file for: $(PACKAGE)"
 	@rm -f $@
 	@(cd $(ROOT); zip -r $@ * $(ZIPIGNORES))
 

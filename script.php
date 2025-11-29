@@ -26,7 +26,7 @@ return new class () implements InstallerScriptInterface {
     private function mkdirThumbs()
     {
         try {
-            $thumbFolder =  JPATH_SITE . DIRECTORY_SEPARATOR . 'modules' .
+            $thumbFolder =  JPATH_SITE . DIRECTORY_SEPARATOR . 'files' .
                             DIRECTORY_SEPARATOR . 'mod_jofavcats' . DIRECTORY_SEPARATOR . 'thumbs';
             Log::add("mod_jofavcats install . $thumbFolder", Log::INFO, 'extension-installation');
             Folder::create($thumbFolder);

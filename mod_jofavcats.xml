@@ -11,7 +11,7 @@
     <license>http://www.gnu.org/licenses/gpl-3.0.html GNU/GPL</license>
 	<authorEmail>jltryoen@orange.fr;chuzky@gmail.com</authorEmail>
 	<authorUrl>http://www.jltryoen.fr http://www.joomlahill.com</authorUrl>
-	<version>5.0.1</version>
+	<version>5.0.2</version>
 	<namespace path="src">JLTRY\Module\JOFavCats</namespace>
 	<description>MOD_JOFAVCATS_XML_DESCRIPTION</description>
 	<scriptfile>script.php</scriptfile>
