@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <updates>
 	<update>
-		<name>JOFavCats</name>
+		<name>JO's Favorite Categories</name>
 		<description>This module displays a list of articles from your favorite categories.</description>
 		<element>mod_jofavcats</element>
 		<type>module</type>

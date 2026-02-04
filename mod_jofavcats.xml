@@ -29,7 +29,7 @@
 		<folder>css</folder>
     </media>
     <updateservers>
-       <server type="extension" priority="1" name="JO Favcats Updates">https://raw.githubusercontent.com/JLTRY/mod_jofavcats/master/mod_jofavcats-update.xml</server>
+       <server type="extension" priority="1" name="JO's Favorite Categories Updates">https://raw.githubusercontent.com/JLTRY/mod_jofavcats/master/mod_jofavcats-update.xml</server>
     </updateservers>
 	<config>
 		<fields name="params">
